@@ -17,7 +17,7 @@ const EventCard = ({
       className={`EventCard${small ? " EventCard--small" : ""}`}
       {...props}
     >
-      <div className="EventCard__imageContainer">
+      <div className="EventCard__imageContainer" id="nos-realisations">
         <img data-testid="card-image-testid" src={imageSrc} alt={imageAlt} />
         <div className="EventCard__label">{label}</div>
       </div>
