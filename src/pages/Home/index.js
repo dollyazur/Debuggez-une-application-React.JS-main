@@ -13,8 +13,10 @@ import Modal from "../../containers/Modal";
 import { useData } from "../../contexts/DataContext";
 
 const Page = () => {
-  const {last} = useData()
-  return <>
+  const {data} = useData()
+  const last = data ? data.events[data.events.length - 1] : null
+  return (
+  <>
     <header>
       <Menu />
     </header>
@@ -116,15 +118,16 @@ const Page = () => {
     <footer className="row">
       <div className="col presta">
         <h3>Notre dernière prestation</h3>
-        {last && last.cover && last.title ? ( // verif si donnée sont là
+        {last && (
         <EventCard
-          imageSrc={last?.cover}
-          title={last?.title}
-          date={new Date(last?.date)}
-          small
-          label={last?.type} // rajout car oublie de last?.type pour spécifié le type d'évènement
+        imageSrc={last?.cover}
+        imageAlt={last?.description}
+        title={last?.title}
+        date={new Date(last?.date)}
+        small
+        label={last?.type}//  type d'évènement
         />
-      ) : null}  {/* Ne rien afficher si les données sont manquantes */}
+        )}
       </div>
       <div className="col contact">
         <h3>Contactez-nous</h3>
@@ -157,6 +160,7 @@ const Page = () => {
       </div>
     </footer>
   </>
+  )
 }
 
 export default Page;
