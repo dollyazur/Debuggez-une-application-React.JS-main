@@ -118,16 +118,16 @@ const Page = () => {
     <footer className="row">
       <div className="col presta">
         <h3>Notre dernière prestation</h3>
-        {last && (
+        
         <EventCard
-        imageSrc={last?.cover}
-        imageAlt={last?.description}
-        title={last?.title}
+        imageSrc={last?.cover || "default-image.jpg"} // evite les warning en cas de valeur manquante
+        imageAlt={last?.description || "Image description"}
+        title={last?.title || "Default Title"}
         date={new Date(last?.date)}
         small
-        label={last?.type}//  type d'évènement
+        label={last?.type|| "Unknown Type"}//  type d'évènement
         />
-        )}
+       
       </div>
       <div className="col contact">
         <h3>Contactez-nous</h3>

@@ -52,9 +52,9 @@ const Slider = () => {
           
           <div className="SlideCard__paginationContainer"> 
             <div className="SlideCard__pagination">
-            {byDateDesc.map((event) => (
+            {byDateDesc.map((event, idx) => (
       <input
-        key={`radio-${event.id}`} // chaque point est unique par son id
+      key={`radio-${event.id || idx}`}
         type="radio"
         name="radio-button"
         checked={index === byDateDesc.indexOf(event)} // Pour vérifier si c'est le point actif

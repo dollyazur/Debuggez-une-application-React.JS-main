@@ -5,11 +5,11 @@ import "./style.scss";
 
 const EventCard = ({
   events = [], // Liste complète des événements
-  imageSrc,
-  imageAlt,
+  imageSrc = "image",
+  imageAlt= "alt-image",
   date = new Date(), // date par défaut en attendant d'en avoir une
-  title,
-  label,
+  title = "titre",
+  label= "etiquette",
   small = false,
   ...props
 }) => {
@@ -20,10 +20,10 @@ const EventCard = ({
  .sort((a, b) => new Date(b.date) - new Date(a.date))[0]; // Trier par date décroissante
 
 // Si un dernier événement existe, on utilise ses données
-const eventImage = lastEvent ? lastEvent.cover : imageSrc;
-const eventTitle = lastEvent ? lastEvent.title : title;
+
+
 const eventDate = lastEvent ? new Date(lastEvent.date) : date;
-const eventLabel = lastEvent ? lastEvent.type : label;
+
 
   // Ici, on vérifie la date
   const validDate = date instanceof Date ? date : new Date(eventDate);
@@ -37,13 +37,13 @@ const eventLabel = lastEvent ? lastEvent.type : label;
 
       {/* Image de la carte */}
       <div className="EventCard__imageContainer" id="">
-        <img data-testid="card-image-testid" src={eventImage} alt={imageAlt} />
-        <div className="EventCard__label">{eventLabel}</div>
+        <img data-testid="card-image-testid" src={imageSrc} alt={imageAlt} />
+        <div className="EventCard__label">{label}</div>
       </div>
 
       {/* Description de la carte */}
       <div className="EventCard__descriptionContainer">
-        <div className="EventCard__title">{eventTitle}</div>
+        <div className="EventCard__title">{title}</div>
  {/* On utilise `getMonth` pour afficher le mois correct */}
         <div className="EventCard__month">{getMonth(validDate)}</div>
       </div>
