@@ -116,13 +116,15 @@ const Page = () => {
     <footer className="row">
       <div className="col presta">
         <h3>Notre dernière prestation</h3>
+        {last && last.cover && last.title ? ( // verif si donnée sont là
         <EventCard
           imageSrc={last?.cover}
           title={last?.title}
           date={new Date(last?.date)}
           small
-          label="boom"
+          label={last?.type} // rajout car oublie de last?.type pour spécifié le type d'évènement
         />
+      ) : null}  {/* Ne rien afficher si les données sont manquantes */}
       </div>
       <div className="col contact">
         <h3>Contactez-nous</h3>
