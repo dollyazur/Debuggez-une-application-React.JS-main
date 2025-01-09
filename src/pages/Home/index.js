@@ -62,7 +62,8 @@ const Page = () => {
         <p>Une équipe d’experts dédiés à l’organisation de vos événements</p>
         <div className="ListContainer">
           <PeopleCard
-            imageSrc="/images/stephanie-liverani-Zz5LQe-VSMY-unsplash.png"
+            imageSrc="/images/stephanie-liverani-Zz5LQe-VSMY-unsplash.png "
+            imageAlt="photo de samira"
             name="Samira"
             position="CEO"
           />
@@ -121,7 +122,7 @@ const Page = () => {
         
         <EventCard
         imageSrc={last?.cover || "default-image.jpg"} // evite les warning en cas de valeur manquante
-        imageAlt={last?.description || "Image description"}
+        imageAlt={last?.alt || "Image description"}
         title={last?.title || "Default Title"}
         date={new Date(last?.date)}
         small

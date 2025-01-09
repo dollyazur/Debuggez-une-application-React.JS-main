@@ -52,6 +52,7 @@ const EventList = () => {
                   <EventCard
                     onClick={() => setIsOpened(true)}
                     imageSrc={event.cover}
+                    imageAlt = {event.alt}
                     title={event.title}
                     date={new Date(event.date)}
                     label={event.type}
